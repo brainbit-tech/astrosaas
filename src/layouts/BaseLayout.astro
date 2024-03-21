@@ -2,17 +2,22 @@
 import BaseHead from "../components/BaseHead.astro";
 import Navigation from "../components/global/Navigation.astro";
 import Footer from "../components/global/Footer.astro";
+import { createAuth0Client } from '@auth0/auth0-spa-js';
 ---
 <html
   lang="en"
   class="scroll-smooth selection:bg-accent-500 selection:text-white no-touchevents hydrated"
 >
   <head>
+    <script src="https://cdn.auth0.com/js/auth0-spa-js/2.0/auth0-spa-js.production.js"></script>
     <BaseHead />
   </head>
   <body class="bg-white flex flex-col min-h-svh">
     <Navigation/>
     <main class="grow"><slot /></main>
     <Footer/>
+    <!-- authentication -->
+    <script src="https://cdn.auth0.com/js/auth0-spa-js/2.0/auth0-spa-js.production.js"></script>
+    <script src="/js/app.js" is:inline></script>
   </body>
 </html>
